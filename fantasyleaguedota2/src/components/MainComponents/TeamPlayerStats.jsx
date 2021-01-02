@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { useParams, Redirect, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import Card from "@material-ui/core/Card";
@@ -20,9 +20,7 @@ const TeamPlayerStats = () => {
         .then((response) => setData(response.data));
     }
     getData();
-  }, []);
-  //onRowClicked={(event) => routeChange(event)}
-  //{handleClick ? <Redirect to={{ pathname: `/teams/${teamID}` }} /> : null}
+  }, [teamID]);
 
   const location = useLocation();
 
@@ -87,9 +85,3 @@ const TeamPlayerStats = () => {
 };
 
 export default TeamPlayerStats;
-
-/* {handleClick ? (
-    <Redirect
-      to={{ pathname: `${location.pathname}/players/${teamPlayerMoreID}` }}
-    />
-  ) : null} */

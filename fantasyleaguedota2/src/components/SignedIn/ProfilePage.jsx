@@ -49,14 +49,3 @@ const ProfilePage = () => {
   );
 };
 export default ProfilePage;
-
-{
-  /* <button
-        className="w-full py-3 bg-red-600 mt-4 text-white"
-        onClick={() => {
-          auth.signOut();
-        }}
-      >
-        Sign out
-      </button> */
-}

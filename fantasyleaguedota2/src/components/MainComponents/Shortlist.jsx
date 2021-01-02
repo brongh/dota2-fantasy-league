@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 import { Button } from "react-bootstrap";
 import { addOne, deleteShort } from "../../fbase";
 
 const Shortlist = ({ data }) => {
+  const [slData, setSlData] = useState([]);
+  const [mounted, setMounted] = useState(false);
+  
   const handleAdd = () => {
     addOne(data, () => console.log("success"));
+    setMounted(true);
   };
   const handleDel = () => {
     deleteShort(data.id);
+    setSlData([]);
+    setMounted(true);
   };
+
+  useEffect(() => {
+    if (!mounted) setSlData(data);
+  }, [mounted])
+
   return (
+    !mounted ? (
     <div className="shortlist">
       <div className="shortlistEntries">
-        Player name: <span>{data.playerName}</span>
+        Player name: <span>{slData.playerName}</span>
       </div>
       <div className="shortlistEntries">
-        Average GPM: <span>{data.averageGPM}</span>
+        Average GPM: <span>{slData.averageGPM}</span>
       </div>
       <div className="shortlistEntries">
-        Average XPM: <span>{data.averageXPM}</span>
+        Average XPM: <span>{slData.averageXPM}</span>
       </div>
       <div className="addOrRemove">
         <Button
@@ -38,10 +50,9 @@ const Shortlist = ({ data }) => {
           Remove
         </Button>
       </div>
-    </div>
+    </div>) : null
   );
 };
 
 export default Shortlist;
-{
-}
+

@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Button } from "react-bootstrap";
 import { deleteChosen } from "../../fbase";
 
 const ChosenPlayers = ({ data }) => {
+  const [mount, setMount] = useState(false);
   const handleClick = () => {
     console.log(data.id);
     deleteChosen(data.id);
+    setMount(true)
   };
   return (
+    !mount ? (
     <div style={{ color: "white" }}>
       <div>
         <h3>{data.playerName}</h3>
@@ -40,7 +43,7 @@ const ChosenPlayers = ({ data }) => {
           remove
         </Button>
       </div>
-    </div>
+    </div>) : null
   );
 };
 

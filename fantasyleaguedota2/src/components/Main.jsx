@@ -10,7 +10,6 @@ import UserProvider from "./providers/UserProvider";
 import TeamPlayerStats from "./MainComponents/TeamPlayerStats";
 import TeamPlayerStatsMore from "./MainComponents/TeamPlayerStatsMore";
 import FantasyBoard from "./MainComponents/FantasyBoard";
-import { UserContext } from "./providers/UserProvider";
 
 const Main = () => {
   return (

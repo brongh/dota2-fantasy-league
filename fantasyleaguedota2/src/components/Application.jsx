@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 //import { Route, Switch } from "react-router-dom";
-import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
